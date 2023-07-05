@@ -1,11 +1,15 @@
 import { productPaths, productDetails } from "../lib/Products";
 import Layout from '@/components/Layout'; 
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Page({data}){
     return (
     <Layout>
-    <div className=" mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+    <Head>
+        <title>{data.title}</title>
+    </Head>
+    <div className=" mt-5 grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
 
         <img className="w-[500px] h-[500px] object-contain" src={data.image} alt={data.title} />
 
@@ -27,6 +31,7 @@ export default function Page({data}){
                 <span className="text-bold mt-2">About this Item! <br/></span>
                 {data.description}
             </div>
+            <button type="submit" className="rounded border-2 border-black hover:bg-[#f85606] hover:text-white transition-all duration-300 px-4 py-1">Add to cart</button>
         </div>
     </div>
     </Layout>
